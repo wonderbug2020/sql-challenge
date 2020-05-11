@@ -48,3 +48,28 @@ SELECT e.emp_no, e.last_name, e.first_name, dp.dept_name
 FROM employees e
 LEFT JOIN dept_emp de ON e.emp_no = de.emp_no
 LEFT JOIN departments dp ON de.dept_no = dp.dept_no
+
+-- Question 5
+SELECT e.first_name, e.last_name, e.sex
+FROM employees e
+WHERE e.first_name = 'Hercules' AND e.last_name LIKE 'B%'
+
+-- Question 6
+SELECT e.emp_no, e.last_name, e.first_name, dp.dept_name
+FROM employees e
+LEFT JOIN dept_emp de ON e.emp_no = de.emp_no
+LEFT JOIN departments dp ON de.dept_no = dp.dept_no
+WHERE dp.dept_name = 'Sales'
+
+-- Question 7
+SELECT e.emp_no, e.last_name, e.first_name, dp.dept_name
+FROM employees e
+LEFT JOIN dept_emp de ON e.emp_no = de.emp_no
+LEFT JOIN departments dp ON de.dept_no = dp.dept_no
+WHERE dp.dept_name = 'Sales' OR dp.dept_name = 'Development'
+
+-- Question 8
+SELECT e.last_name, COUNT(*) AS "Number of last name"
+FROM employees e
+GROUP BY e.last_name 
+ORDER BY "Number of last name" DESC
